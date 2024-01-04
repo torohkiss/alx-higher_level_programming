@@ -13,4 +13,4 @@ if __name__ == "__main__":
 
     if c > 0:
         for i in range(c):
-            print("{}: {}".format(i + 1, sys.arg [i + 1]))
+            print("{}: {}".format(i + 1, sys.argv[i + 1]))
