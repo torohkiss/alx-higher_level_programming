@@ -7,7 +7,7 @@ def safe_print_list(my_list=[], x=0):
         for i in my_list[:x]:
             print("{}".format(i), end="")
             total += 1
-    except:
+    except IndexError:
         pass
     print()
     return total
