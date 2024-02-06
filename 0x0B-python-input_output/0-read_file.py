@@ -4,5 +4,5 @@
 
 def read_file(filename=""):
     """read a file"""
-    with open(filename, 'r', encoding='utf-8') as filee:
-        print("{}".format(filee.read()), end="")
+    with open(filename, mode='r', encoding='utf-8') as filee:
+        print(filee.read(), end="")
