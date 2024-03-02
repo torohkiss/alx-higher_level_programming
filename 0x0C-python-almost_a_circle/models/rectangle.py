@@ -69,7 +69,7 @@ class Rectangle(Base):
 
     def display(self):
         """Prints a rectangle instance as #"""
-        for i in range(width):
-            for j in range(height):
+        for i in range(self.__width):
+            for j in range(self.__height):
                 print("#", end="")
             print()
