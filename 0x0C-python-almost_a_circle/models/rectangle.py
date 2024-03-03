@@ -81,7 +81,7 @@ class Rectangle(Base):
                         self.__width) + "/" + str(self.__height)
 
     def update(self, *args, **kwargs):
-        """Updating the class with *args"""
+        """Updating the class with *args and *kwargs"""
         if args:
             if len(args) >= 1:
                 self.id = args[0]
