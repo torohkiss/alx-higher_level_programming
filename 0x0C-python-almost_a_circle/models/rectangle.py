@@ -93,7 +93,11 @@ class Rectangle(Base):
                 self.x = args[3]
             if len(args) >= 5:
                 self.y = args[4]
-        else:
+        elif kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+        """else:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
@@ -105,3 +109,8 @@ class Rectangle(Base):
                     self.x = value
                 if key == 'y':
                     self.y == value
+        elif kwargs:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
+                    """
