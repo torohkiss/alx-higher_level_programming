@@ -29,8 +29,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
+            self.id = args[0]
             if len(args) >= 2:
                 self.size = args[1]
             if len(args) >= 3:
@@ -41,4 +40,3 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if hasattr(self, key):
                     setattr(self, key, value)
-        return self
