@@ -33,3 +33,10 @@ class Base:
                 nlist.append(cls.to_dictionary(each_l))
         with open("{:s}.json".format(cls.__name__), 'w') as file:
             file.write(cls.to_json_string(nlist))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """from js9n string to dictionary"""
+        if json_string is None:
+            return "[]"
+        return json.loads(json_string)
