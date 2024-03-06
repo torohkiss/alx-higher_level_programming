@@ -38,5 +38,5 @@ class Base:
     def from_json_string(json_string):
         """from js9n string to dictionary"""
         if json_string is None:
-            return "[]"
+            return []
         return json.loads(json_string)
