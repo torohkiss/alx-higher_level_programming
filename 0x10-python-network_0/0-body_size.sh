@@ -1,4 +1,3 @@
 #!/bin/bash
-# Bash script that takes in a URL, sends a request to that URL
-# displays the size of the body of the response
+# displays size of the body of response of a url
 curl -s -w %{size_download}"\n" "$1" -o /dev/null
