@@ -8,8 +8,7 @@ variable X-Request-Id in the response header
 import requests
 import sys
 
-url = sys.argv[1]
 if __name__ == "__main__":
-    r = requests.get(url)
+    r = requests.get(sys.argv[1])
     var = r.headers['X-Request-Id']
-    print(var)
+    print("{}".format(var))
