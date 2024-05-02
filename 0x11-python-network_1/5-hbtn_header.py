@@ -11,5 +11,5 @@ import sys
 url = sys.argv[1]
 if __name__ == "__main__":
     r = requests.get('https://alx-intranet.hbtn.io')
-    var = r.headers.get('X-Request-Id')
+    var = r.headers['X-Request-Id']
     print(var)
