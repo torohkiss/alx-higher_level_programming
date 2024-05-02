@@ -14,3 +14,5 @@ if __name__ == "__main__":
     stcode = r.status_code
     if stcode >= 400:
         print("Error code: {}".format(stcode))
+    else:
+        print("{}".format(r.text))
