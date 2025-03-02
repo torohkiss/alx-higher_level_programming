@@ -16,3 +16,11 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.id, 1)
         self.assertEqual(r2.id, 2)
         self.assertEqual(r3.id, 12)
+
+    def test_values(self):
+
+        with self.assertRaises(ValueError):
+            Rectangle(-10, 2, 3, -1)
+            Rectangle(10, "2")
+            r = Rectangle(10, 2)
+            r.x = {}
