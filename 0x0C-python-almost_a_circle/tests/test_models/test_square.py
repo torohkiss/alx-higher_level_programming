@@ -48,3 +48,24 @@ class TestSquare(unittest.TestCase):
         output2 = captured_output.getvalue()
         expected2 = "  ##\n  ##\n"
         self.assertEqual(output2, expected2)
+
+    def test_square_values(self):
+        s1 = Square(5)
+
+        self.assertEqual(str(s1), "[Square] (1) 0/0 - 5")
+
+    def test_raises(self):
+        s1 = Square(5)
+
+        with self.assertRaises(TypeError):
+            s1.size = "9"
+
+
+    def test_square_size(self):
+        s1 = Square(5)
+
+        self.assertEqual(s1.size, 5)
+
+        s1.size = 10
+
+        self.assertEqual(s1.size, 10)
