@@ -1,5 +1,7 @@
 from models.rectangle import Rectangle
 from models.base import Base
+import io
+from contextlib import redirect_stdout
 import unittest
 
 
@@ -33,3 +35,16 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.area(), 6)
         self.assertEqual(r2.area(), 20)
         self.assertEqual(r3.area(), 56)
+
+    def test_display(self):
+        r1 = Rectangle(4, 6)
+        r2 = Rectangle(2, 2)
+
+        captured_output = io.StringIO()
+
+        with redirect_stdout(captured_output):
+            r1.display()
+
+        output = captured_output.getvalue()
+
+        self.assertEqual(output, f"####\n####\n####\n####\n####\n####\n")
