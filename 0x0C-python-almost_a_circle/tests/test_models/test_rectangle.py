@@ -40,11 +40,24 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(4, 6)
         r2 = Rectangle(2, 2)
 
+        # Create a StringIO object to capture stdout
         captured_output = io.StringIO()
 
+        # Redirect stdout to our StringIO object
         with redirect_stdout(captured_output):
             r1.display()
 
-        output = captured_output.getvalue()
+        # Get the value from the StringIO object
+        output1 = captured_output.getvalue()
 
-        self.assertEqual(output, f"####\n####\n####\n####\n####\n####\n")
+        # Reset the StringIO object for the next test
+        captured_output.truncate(0)
+        captured_output.seek(0)
+
+        with redirect_stdout(captured_output):
+            r2.display()
+
+        output2 = captured_output.getvalue()
+
+        self.assertEqual(output1, f"####\n####\n####\n####\n####\n####\n")
+        self.assertEqual(output2, "##\n##\n")
