@@ -61,3 +61,10 @@ class TestRectangle(unittest.TestCase):
 
         self.assertEqual(output1, f"####\n####\n####\n####\n####\n####\n")
         self.assertEqual(output2, "##\n##\n")
+
+    def test_str(self):
+        r1 = Rectangle(4, 6, 2, 1, 12)
+        r2 = Rectangle(5, 5, 1)
+
+        self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 5/5")
