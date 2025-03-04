@@ -2,6 +2,7 @@ from models.rectangle import Rectangle
 from models.base import Base
 import io
 from contextlib import redirect_stdout
+import json
 import unittest
 
 
@@ -133,3 +134,21 @@ class TestRectangle(unittest.TestCase):
 
         r1.update(89, 2)
         self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/10")
+
+    def test_to_dictionary(self):
+        r1 = Rectangle(10, 2, 1, 9)
+        r2 = Rectangle(1, 1)
+
+        self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
+
+        r1_dictionary = r1.to_dictionary()
+        dict_rep = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(r1_dictionary, dict_rep)
+        self.assertEqual(type(r1_dictionary), dict)
+
+        self.assertEqual(str(r2), "[Rectangle] (2) 0/0 - 1/1")
+        
+        r2.update(**r1_dictionary)
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/9 - 10/2")
+
+        self.assertNotEqual(r1, r2)
