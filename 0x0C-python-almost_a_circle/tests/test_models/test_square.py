@@ -85,3 +85,21 @@ class TestSquare(unittest.TestCase):
 
         s1.update(1, 2, 3, 4)
         self.assertEqual(str(s1), "[Square] (1) 3/4 - 2")
+
+    def test_to_dictionary_square(self):
+        s1 = Square(10, 2, 1)
+        s2 = Square(1, 1)
+
+        self.assertEqual(str(s1), "[Square] (1) 2/1 - 10")
+
+        s1_dictionary = s1.to_dictionary()
+        square_dict_rep = {'id': 1, 'x': 2, 'size': 10, 'y': 1}
+        self.assertEqual(s1_dictionary, square_dict_rep)
+        self.assertEqual(type(s1_dictionary), dict)
+
+        self.assertEqual(str(s2), "[Square] (2) 1/0 - 1")
+
+        s2.update(**s1_dictionary)
+        self.assertEqual(str(s2), "[Square] (1) 2/1 - 10")
+
+        self.assertNotEqual(s1, s2)
